@@ -24,7 +24,7 @@ export declare const getPassiveOptions: () => false | {
 /**
  * Calculate thumb size
  */
-export declare function getThumbSize({ thumbMinSize, trackSize, contentSize }: {
+export declare function getThumbSize({ thumbMinSize, trackSize, contentSize, }: {
     thumbMinSize: number;
     trackSize: number;
     contentSize: number;
@@ -32,7 +32,7 @@ export declare function getThumbSize({ thumbMinSize, trackSize, contentSize }: {
 /**
  * Calculate thumb position
  */
-export declare function getThumbPosition({ thumbSize, trackSize, contentSize, scrollPosition }: {
+export declare function getThumbPosition({ thumbSize, trackSize, contentSize, scrollPosition, }: {
     thumbSize: number;
     trackSize: number;
     contentSize: number;

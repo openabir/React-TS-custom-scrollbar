@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface ScrollbarProps {
   /**
@@ -105,6 +105,21 @@ export interface ScrollbarProps {
    * Hide horizontal scrollbar
    */
   hideTracksWhenNotNeeded?: boolean;
+
+  /**
+   * Enable accessibility features (ARIA attributes, keyboard navigation)
+   */
+  a11yEnabled?: boolean;
+
+  /**
+   * ARIA label for the scrollbar
+   */
+  ariaLabel?: string;
+
+  /**
+   * Scroll amount (in pixels) to use for keyboard navigation
+   */
+  keyboardScrollAmount?: number;
 
   /**
    * Children of the component

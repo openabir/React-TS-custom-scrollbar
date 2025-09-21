@@ -8,7 +8,7 @@ export function getScrollValues(element: HTMLElement) {
     scrollWidth,
     scrollHeight,
     clientWidth,
-    clientHeight
+    clientHeight,
   } = element;
 
   return {
@@ -19,7 +19,7 @@ export function getScrollValues(element: HTMLElement) {
     scrollWidth,
     scrollHeight,
     clientWidth,
-    clientHeight
+    clientHeight,
   };
 }
 
@@ -27,7 +27,12 @@ export function getScrollValues(element: HTMLElement) {
  * Check if element is a DOM element
  */
 export function isDOMElement(element: any): element is HTMLElement {
-  return element && typeof element === 'object' && element.nodeType === 1 && typeof element.style === 'object';
+  if (!element) return false;
+  return (
+    typeof element === "object" &&
+    element.nodeType === 1 &&
+    typeof element.style === "object"
+  );
 }
 
 /**
@@ -41,12 +46,20 @@ export const getPassiveOptions = () => {
       get passive() {
         passiveSupported = true;
         return true;
-      }
+      },
     };
 
     // Use type assertion to handle the options object
-    window.addEventListener('test', () => {}, options as AddEventListenerOptions);
-    window.removeEventListener('test', () => {}, options as AddEventListenerOptions);
+    window.addEventListener(
+      "test",
+      () => {},
+      options as AddEventListenerOptions
+    );
+    window.removeEventListener(
+      "test",
+      () => {},
+      options as AddEventListenerOptions
+    );
   } catch (err) {
     passiveSupported = false;
   }
@@ -57,7 +70,15 @@ export const getPassiveOptions = () => {
 /**
  * Calculate thumb size
  */
-export function getThumbSize({ thumbMinSize, trackSize, contentSize }: { thumbMinSize: number; trackSize: number; contentSize: number }) {
+export function getThumbSize({
+  thumbMinSize,
+  trackSize,
+  contentSize,
+}: {
+  thumbMinSize: number;
+  trackSize: number;
+  contentSize: number;
+}) {
   const ratio = trackSize / contentSize;
   const thumbSize = Math.max(ratio * trackSize, thumbMinSize);
   return thumbSize;
@@ -66,9 +87,24 @@ export function getThumbSize({ thumbMinSize, trackSize, contentSize }: { thumbMi
 /**
  * Calculate thumb position
  */
-export function getThumbPosition({ thumbSize, trackSize, contentSize, scrollPosition }: 
-  { thumbSize: number; trackSize: number; contentSize: number; scrollPosition: number }) {
+export function getThumbPosition({
+  thumbSize,
+  trackSize,
+  contentSize,
+  scrollPosition,
+}: {
+  thumbSize: number;
+  trackSize: number;
+  contentSize: number;
+  scrollPosition: number;
+}) {
   const maxScrollPosition = contentSize - trackSize;
+
+  // If content fits or is smaller than track, return 0
+  if (maxScrollPosition <= 0) {
+    return 0;
+  }
+
   const maxThumbPosition = trackSize - thumbSize;
   const ratio = maxThumbPosition / maxScrollPosition;
   return scrollPosition * ratio;

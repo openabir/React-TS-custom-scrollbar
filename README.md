@@ -2,7 +2,7 @@
 
 A lightweight, highly customizable React scrollbar component with TypeScript support, accessibility features, and cross-browser compatibility.
 
-[![npm version](https://badge.fury.io/js/react-custom-scrollbar.svg)](https://badge.fury.io/js/react-custom-scrollbar)
+[![npm version](https://badge.fury.io/js/@openabir/react-custom-scrollbar-lite.svg)](https://badge.fury.io/js/@openabir/react-custom-scrollbar-lite)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
 
@@ -22,24 +22,24 @@ A lightweight, highly customizable React scrollbar component with TypeScript sup
 ## 📦 Installation
 
 ```bash
-npm install react-custom-scrollbar
+npm install @openabir/react-custom-scrollbar-lite
 ```
 
 or
 
 ```bash
-yarn add react-custom-scrollbar
+yarn add @openabir/react-custom-scrollbar-lite
 ```
 
 ## 🚀 Quick Start
 
 ```tsx
-import React from 'react';
-import Scrollbar from 'react-custom-scrollbar';
+import React from "react";
+import Scrollbar from "@openabir/react-custom-scrollbar-lite";
 
 function App() {
   return (
-    <Scrollbar style={{ height: '400px', width: '300px' }}>
+    <Scrollbar style={{ height: "400px", width: "300px" }}>
       <div>
         {/* Your scrollable content */}
         <p>Long content that will be scrollable...</p>
@@ -57,46 +57,46 @@ export default App;
 
 ### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | Content to be scrolled |
-| `style` | `CSSProperties` | `{}` | Custom styles for the container |
-| `className` | `string` | - | CSS class name for the container |
-| `autoHide` | `boolean` | `false` | Hide scrollbars when not scrolling |
-| `autoHideTimeout` | `number` | `1000` | Time in ms before hiding scrollbars |
-| `autoHideDuration` | `number` | `200` | Duration of hide animation (ms) |
-| `thumbMinSize` | `number` | `30` | Minimum size of scroll thumb in pixels |
-| `universal` | `boolean` | `false` | Enable universal rendering (SSR) |
-| `autoHeight` | `boolean` | `false` | Automatically adjust height to content |
-| `autoHeightMin` | `number \| string` | `0` | Minimum height when autoHeight is enabled |
-| `autoHeightMax` | `number \| string` | `200` | Maximum height when autoHeight is enabled |
-| `hideTracksWhenNotNeeded` | `boolean` | `false` | Hide tracks when not needed |
-| `renderThumbHorizontal` | `(props: any) => ReactElement` | - | Custom horizontal thumb component |
-| `renderThumbVertical` | `(props: any) => ReactElement` | - | Custom vertical thumb component |
-| `renderTrackHorizontal` | `(props: any) => ReactElement` | - | Custom horizontal track component |
-| `renderTrackVertical` | `(props: any) => ReactElement` | - | Custom vertical track component |
-| `renderView` | `(props: any) => ReactElement` | - | Custom view component |
-| `onScroll` | `(event: Event) => void` | - | Scroll event handler |
-| `onScrollFrame` | `(values: ScrollValues) => void` | - | Called on each scroll frame |
-| `onScrollStart` | `() => void` | - | Called when scrolling starts |
-| `onScrollStop` | `() => void` | - | Called when scrolling stops |
-| `onUpdate` | `(values: ScrollValues) => void` | - | Called when scroll values update |
-| `a11yEnabled` | `boolean` | `true` | Enable accessibility features |
-| `ariaLabel` | `string` | `'Scrollable content'` | ARIA label for the scrollbar |
-| `keyboardScrollAmount` | `number` | `40` | Scroll amount (px) for keyboard navigation |
+| Prop                      | Type                             | Default                | Description                                |
+| ------------------------- | -------------------------------- | ---------------------- | ------------------------------------------ |
+| `children`                | `ReactNode`                      | -                      | Content to be scrolled                     |
+| `style`                   | `CSSProperties`                  | `{}`                   | Custom styles for the container            |
+| `className`               | `string`                         | -                      | CSS class name for the container           |
+| `autoHide`                | `boolean`                        | `false`                | Hide scrollbars when not scrolling         |
+| `autoHideTimeout`         | `number`                         | `1000`                 | Time in ms before hiding scrollbars        |
+| `autoHideDuration`        | `number`                         | `200`                  | Duration of hide animation (ms)            |
+| `thumbMinSize`            | `number`                         | `30`                   | Minimum size of scroll thumb in pixels     |
+| `universal`               | `boolean`                        | `false`                | Enable universal rendering (SSR)           |
+| `autoHeight`              | `boolean`                        | `false`                | Automatically adjust height to content     |
+| `autoHeightMin`           | `number \| string`               | `0`                    | Minimum height when autoHeight is enabled  |
+| `autoHeightMax`           | `number \| string`               | `200`                  | Maximum height when autoHeight is enabled  |
+| `hideTracksWhenNotNeeded` | `boolean`                        | `false`                | Hide tracks when not needed                |
+| `renderThumbHorizontal`   | `(props: any) => ReactElement`   | -                      | Custom horizontal thumb component          |
+| `renderThumbVertical`     | `(props: any) => ReactElement`   | -                      | Custom vertical thumb component            |
+| `renderTrackHorizontal`   | `(props: any) => ReactElement`   | -                      | Custom horizontal track component          |
+| `renderTrackVertical`     | `(props: any) => ReactElement`   | -                      | Custom vertical track component            |
+| `renderView`              | `(props: any) => ReactElement`   | -                      | Custom view component                      |
+| `onScroll`                | `(event: Event) => void`         | -                      | Scroll event handler                       |
+| `onScrollFrame`           | `(values: ScrollValues) => void` | -                      | Called on each scroll frame                |
+| `onScrollStart`           | `() => void`                     | -                      | Called when scrolling starts               |
+| `onScrollStop`            | `() => void`                     | -                      | Called when scrolling stops                |
+| `onUpdate`                | `(values: ScrollValues) => void` | -                      | Called when scroll values update           |
+| `a11yEnabled`             | `boolean`                        | `true`                 | Enable accessibility features              |
+| `ariaLabel`               | `string`                         | `'Scrollable content'` | ARIA label for the scrollbar               |
+| `keyboardScrollAmount`    | `number`                         | `40`                   | Scroll amount (px) for keyboard navigation |
 
 ### ScrollValues Interface
 
 ```typescript
 interface ScrollValues {
-  top: number;          // Scroll top position (0-1)
-  left: number;         // Scroll left position (0-1)
-  clientWidth: number;  // Width of the view
+  top: number; // Scroll top position (0-1)
+  left: number; // Scroll left position (0-1)
+  clientWidth: number; // Width of the view
   clientHeight: number; // Height of the view
-  scrollWidth: number;  // Total scrollable width
+  scrollWidth: number; // Total scrollable width
   scrollHeight: number; // Total scrollable height
-  scrollLeft: number;   // Current horizontal scroll position
-  scrollTop: number;    // Current vertical scroll position
+  scrollLeft: number; // Current horizontal scroll position
+  scrollTop: number; // Current vertical scroll position
 }
 ```
 
@@ -148,15 +148,15 @@ interface ScrollValues {
 ### Custom Components
 
 ```tsx
-import Scrollbar from 'react-custom-scrollbar';
+import Scrollbar from "react-custom-scrollbar";
 
 const CustomScrollbar = () => (
   <Scrollbar
     renderThumbVertical={({ style, ...props }) => (
-      <div {...props} style={{ ...style, backgroundColor: '#00f' }} />
+      <div {...props} style={{ ...style, backgroundColor: "#00f" }} />
     )}
     renderTrackVertical={({ style, ...props }) => (
-      <div {...props} style={{ ...style, backgroundColor: '#f0f0f0' }} />
+      <div {...props} style={{ ...style, backgroundColor: "#f0f0f0" }} />
     )}
   >
     {/* Content */}
@@ -170,7 +170,7 @@ const CustomScrollbar = () => (
 
 ```tsx
 import React from "react";
-import Scrollbar from "react-custom-scrollbar";
+import Scrollbar from "@openabir/react-custom-scrollbar-lite";
 
 const App = () => {
   return (
@@ -192,7 +192,7 @@ export default App;
 
 ```tsx
 import React from "react";
-import Scrollbar from "react-custom-scrollbar";
+import Scrollbar from "@openabir/react-custom-scrollbar-lite";
 
 const App = () => {
   return (
@@ -214,7 +214,7 @@ export default App;
 
 ```tsx
 import React from "react";
-import Scrollbar from "react-custom-scrollbar";
+import Scrollbar from "@openabir/react-custom-scrollbar-lite";
 
 const App = () => {
   // Custom components for scrollbar parts
@@ -259,8 +259,8 @@ export default App;
 
 ```tsx
 import React from "react";
-import Scrollbar from "react-custom-scrollbar";
-import { ScrollValues } from "react-custom-scrollbar";
+import Scrollbar from "@openabir/react-custom-scrollbar-lite";
+import { ScrollValues } from "@openabir/react-custom-scrollbar-lite";
 
 const App = () => {
   const handleScrollStart = () => {
@@ -298,7 +298,7 @@ export default App;
 
 ```tsx
 import React from "react";
-import Scrollbar from "react-custom-scrollbar";
+import Scrollbar from "@openabir/react-custom-scrollbar-lite";
 
 const App = () => {
   return (
@@ -347,16 +347,16 @@ The scrollbar component includes built-in accessibility features:
 
 This component is compatible with the following browsers:
 
-| Browser | Minimum Version |
+| Browser        | Minimum Version      |
 | -------------- | -------------------- |
-| Chrome | 61+ |
-| Firefox | 60+ |
-| Safari | 12.1+ |
-| Edge | 79+ (Chromium-based) |
-| IE | Not supported |
-| Opera | 48+ |
-| iOS Safari | 12.2+ |
-| Android Chrome | 76+ |
+| Chrome         | 61+                  |
+| Firefox        | 60+                  |
+| Safari         | 12.1+                |
+| Edge           | 79+ (Chromium-based) |
+| IE             | Not supported        |
+| Opera          | 48+                  |
+| iOS Safari     | 12.2+                |
+| Android Chrome | 76+                  |
 
 ## 🔧 Polyfills
 
@@ -375,7 +375,7 @@ npm install resize-observer-polyfill
 Then import and use the polyfill in your application entry point:
 
 ```javascript
-import { setupPolyfills } from "react-custom-scrollbar";
+import { setupPolyfills } from "@openabir/react-custom-scrollbar-lite";
 
 // Setup all polyfills
 setupPolyfills();
@@ -386,12 +386,11 @@ setupPolyfills();
 The component supports SSR out of the box. For Next.js:
 
 ```tsx
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-const Scrollbar = dynamic(
-  () => import('react-custom-scrollbar'),
-  { ssr: false }
-);
+const Scrollbar = dynamic(() => import("react-custom-scrollbar"), {
+  ssr: false,
+});
 ```
 
 ## 🎯 Performance Tips

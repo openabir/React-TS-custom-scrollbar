@@ -1,28 +1,56 @@
 {
   "name": "react-custom-scrollbar",
   "version": "1.0.0",
-  "description": "A customizable React scrollbar component with TypeScript support",
+  "description": "A lightweight, customizable React scrollbar component with TypeScript support, accessibility features, and cross-browser compatibility",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "benchmark": "node -r @babel/register benchmarks/scrollbar.bench.js"
+    "benchmark": "node -r @babel/register benchmarks/scrollbar.bench.js",
+    "prepublishOnly": "npm run test && npm run build",
+    "prepare": "npm run build"
   },
   "keywords": [
     "react",
     "scrollbar",
     "custom-scrollbar",
-    "typescript"
+    "typescript",
+    "scroll",
+    "ui-component",
+    "react-component",
+    "accessibility",
+    "a11y",
+    "cross-browser",
+    "lightweight",
+    "customizable"
   ],
-  "author": "",
+  "author": {
+    "name": "openabir",
+    "url": "https://github.com/openabir"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openabir/React-TS-custom-scrollbar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/openabir/React-TS-custom-scrollbar/issues"
+  },
+  "homepage": "https://github.com/openabir/React-TS-custom-scrollbar#readme",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"

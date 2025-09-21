@@ -1,25 +1,27 @@
-import typescript from 'rollup-plugin-typescript2';
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import { terser } from 'rollup-plugin-terser';
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
+import typescript from "rollup-plugin-typescript2";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import { terser } from "rollup-plugin-terser";
+import commonjs from "@rollup/plugin-commonjs";
+import resolve from "@rollup/plugin-node-resolve";
 
-import pkg from './package.json';
+import pkg from "./package.json";
 
 export default {
-  input: 'src/index.ts',
+  input: "src/index.ts",
   output: [
     {
       file: pkg.main,
-      format: 'cjs',
-      exports: 'named',
+      format: "cjs",
+      exports: "named",
       sourcemap: true,
+      inlineDynamicImports: true,
     },
     {
       file: pkg.module,
-      format: 'es',
-      exports: 'named',
+      format: "es",
+      exports: "named",
       sourcemap: true,
+      inlineDynamicImports: true,
     },
   ],
   plugins: [
@@ -27,10 +29,10 @@ export default {
     resolve(),
     commonjs(),
     typescript({
-      tsconfig: './tsconfig.json',
+      tsconfig: "./tsconfig.json",
       useTsconfigDeclarationDir: true,
     }),
     terser(),
   ],
-  external: ['react', 'react-dom'],
+  external: ["react", "react-dom"],
 };
